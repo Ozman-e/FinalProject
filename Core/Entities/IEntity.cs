@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Abstract
+namespace Core.Entities
 {
     //Ientity implement eden bir class bir veritabanı tablosudur
     public interface IEntity
