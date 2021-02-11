@@ -13,18 +13,31 @@ namespace ConsoleUI
         {
             //Data Transformation Object
             ProductTest();
+            Console.WriteLine(" producttest bitti--------------------------------------------------");
             //IoC
-            //CategoryTest();
+            CategoryTest();
 
         }
 
         private static void CategoryTest()
         {
             CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-            foreach (var category in categoryManager.GetAll())
+            var result = categoryManager.GetAll();
+            if (result.Success==true)
             {
-                Console.WriteLine(category.CategoryName);
+                foreach (var category in result.Data)
+                {
+                    Console.WriteLine(category.CategoryName);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+            //foreach (var category in categoryManager.GetAll())
+            //{
+            //    Console.WriteLine(category.CategoryName);
+            //}
         }
 
         private static void ProductTest()
